@@ -39,7 +39,7 @@ Intégration VR Meta sur unreal : https://developers.meta.com/horizon/downloads/
 ### 4.1 Identité Mini-jeu
 Nom : Salle de réflexe
 
-Niveau : Très facile
+Niveau : Facile
 
 Où le trouver dans le hub : Facile, c'est marqué Reflex room au dessus. C'est le seul où l'on peut voir des cubes rouges et bleus apparaître et disparaître !
 
@@ -50,7 +50,9 @@ Vous êtes là pour développer et améliorer vos réflexes. Ici, vous allez dev
 
 Cube bleu : Tapez-les avec vos mains.
 
-Cube rouge : Évitez les avec votre tête
+Cube rouge : Évitez les avec votre tête.
+
+Cube violet : Tapez-les ou évitez les. (Attention, celui là est plus rapide afin de tester votre réflexe)
 
 ---
 ### 4.3 Architecture Technique
