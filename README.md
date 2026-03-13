@@ -29,9 +29,41 @@ Intégration VR Meta sur unreal : https://developers.meta.com/horizon/downloads/
 ---
 ## 3. Jonathan
 ### 3.1 Identité Mini-jeu
+
+Ou le trouver : Salle de Jonathan
+
+Niveau : non fini pour cause de quelque soucis niveau intéraction entre le bouton Play et le joueur (et de temps).
+
 ### 3.2. Règle du mini-jeu
+Phase d'Attente : Le jeu commence lorsque le joueur entre dans la zone de la plateforme de départ (BP_StartPlatform). Un HUD 3D apparaît pour permettre le lancement.
+
+Objectif Principal : Maintenir la bille (BP_Ball) sur le plateau (BP_Tray) le plus longtemps possible.
+
+Contraintes :
+Le plateau s'incline en fonction de l'orientation et de la hauteur des contrôleurs (interaction bimanuelle).
+Des projectiles sont lancés depuis une sphère invisible entourant le joueur.
+Le score augmente avec le temps de survie mais aussi la difficultés.
+Conditions de Défaite : La partie s'arrête si la bille tombe du plateau (détection de seuil de hauteur Z) ou en cas de collision critique.
+
+Chemin du joueur (de base sans les problèmes) : le joueur se positionne sur la plateforme verte, un bouton Play apparait. Quand il clique dessus, un décompte de 5s apparait et à la fin de ce décompte, le jeu se lance. Normalement le joueur peut quitter la platforme a tout moment se qui rénitialisera le mini jeu.
+
 ### 3.3 Architecture Technique
+
+Le projet repose sur une architecture "Event-Driven" (pilotée par événements) afin de minimiser l'usage du Tick et d'optimiser les performances VR.
+
+- Gestionnaire Central (BP_GameManager) : Chef d'orchestre utilisant une machine d'états (E_GameState) pour piloter le flux du jeu (Menu, En Jeu, Game Over).
+
+- Système de Communication : Utilisation exclusive d'Event Dispatchers pour la communication descendante (Manager vers Acteurs) et ascendante (Acteurs vers Manager).
+
+- Physique : Utilisation du moteur Chaos Physics pour la bille, avec un calcul d'inclinaison du plateau basé sur des fonctions mathématiques (ATan2, RLerp) pour une précision bimanuelle fluide.
+
+- Optimisation : Implémentation d'un système de Pool d'objets pour les projectiles afin d'éviter les chutes de FPS liées aux instances répétées (Spawn/Destroy).
 ### 3.4 Difficulté(s) rencontré(s)
+- Synchronisation Bimanuelle : Calculer l'inclinaison exacte du plateau en fonction de la position relative de deux mains en VR sans créer de jitter (tremblement) physique.
+
+- Performance des Projectiles à 360° : Gérer une grande quantité de projectiles provenant de toutes les directions tout en maintenant un taux de rafraîchissement constant de 90 FPS.
+
+- Communication Découplée : Éviter les références circulaires (Hard References) entre le HUD, le Manager et les acteurs du monde en utilisant rigoureusement les interfaces et les délégués.
 ---
 ## 4. Jacqueline
 
