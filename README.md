@@ -43,6 +43,8 @@ Niveau : Facile
 
 Où le trouver dans le hub : Facile, c'est marqué Reflex room au dessus. C'est le seul où l'on peut voir des cubes rouges et bleus apparaître et disparaître !
 
+En cas de problème avec Main ou Dev pour ma partie : Testez sur la branche Lynn
+
 ---
 ### 4.2. Règle du mini-jeu
 
