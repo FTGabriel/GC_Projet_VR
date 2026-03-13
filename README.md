@@ -23,9 +23,46 @@ Intégration VR Meta sur unreal : https://developers.meta.com/horizon/downloads/
 ---
 ## 2. Gabriel
 ### 2.1 Identité Mini-jeu
+
+Nom : Salle de la pêche
+
+Niveau : Facile
+
+Où le trouver dans le hub : On apparaît dans cette salle dès le début, la canne à pêche se trouve devant nous.
+
 ### 2.2. Règle du mini-jeu
+
+Le jeu consiste en une session de pêche.
+
+Après avoir pris la canne dans l'une des mains, on appuie sur le bouton trigger de cette même manette pour faire lancer la ligne de la canne.
+Au bout se trouve un appât auquel les poissons vont s'accrocher.
+Lorsqu'un poisson se sera accroché à l'appât, il faudra faire un mouvement de rotation avec l'autre main, tout en maintenant le bouton trigger de cette même manette, comme si on tournait une manivelle.
+Il faut s'arrêter au bon moment, sinon le poisson va s'échapper.
+Un HUD précisera quand tourner la manivelle et si le poisson sera pêché ou non.
+
 ### 2.3 Architecture Technique
+
+Interactions : Utilisation des Motion Controllers pour la saisie de la canne avec un grab component et le déclenchement du lancer via le bouton Trigger.
+
+Système de Moulinet : Détection d'un mouvement de rotation circulaire couplé au maintien du Trigger de la main secondaire pour simuler l'enroulement de la ligne.
+
+HUD & Feedback : Affichage d'un Widget UI dynamique pour guider le joueur (indications de rotation et alertes pour éviter la fuite du poisson).
+
+Game Feel : Priorité donnée au réalisme du geste (mouvement de manivelle) plutôt qu'aux vibrations de la manette, pour une immersion plus fluide et confortable.
+
 ### 2.4 Difficulté(s) rencontré(s)
+
+Au cours du projet j'ai rencontré plusieures difficultées.
+
+D'abord globales:
+- Ne pas pouvoir utilser de casque chez moi et tester mes features.
+- Les casques en cours qui ont souvent des soucis.
+- Mon travail qui a disparu suite à un merge.
+Puis techniques:
+- Attraper la canne à pêche : réussir à l'aggriper avec un grab component.
+- Physique de la ligne : ajustement de la tension et de la trajectoire du fil lors du lancer pour éviter les comportements erratiques.
+- Physique de l'appât : lui donner une flottaison pour un effet réaliste.
+- Le moulinet : calculer la rotation de la main pour simuler le mouvement de rotation.
 ---
 ## 3. Jonathan
 ### 3.1 Identité Mini-jeu
