@@ -7,7 +7,7 @@ Casque VR : Meta 3s ou équivalent
 
 Intégration VR Meta sur unreal : https://developers.meta.com/horizon/downloads/package/unreal-engine-5-integration/81.0/
 
-## Table of Contents
+## Sommaire
 1.  [Rayane](#1-Rayane)
 2.  [Gabriel](#2-Gabriel)
 3.  [Jonathan](#3-Jonathan)
