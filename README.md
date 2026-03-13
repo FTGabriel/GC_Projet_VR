@@ -75,8 +75,36 @@ Game Feel : Intégration de feedbacks visuels via des particules (ici une explos
 
 ---
 ## 5. Nathan
+
 ### 5.1 Identité Mini-jeu
+
+Nom du projet : The Rotating Bar
+Niveau : Moyen
+Concept : Un jeu d'adresse et de tri où le joueur doit placer des bouteilles dans les tuyaux correspondants tout en gérant un environnement en mouvement constant.
+Ambiance : Arcade, dynamique et immersive.
+
 ### 5.2. Règle du mini-jeu
+
+Activation : Le jeu démarre lorsque le joueur entre dans la zone centrale du comptoir.
+Objectif : Attraper les bouteilles qui spawnent sur le comptoir tournant et les insérer dans les tuyaux de la couleur correspondante.
+Haptique : Une validation réussie déclenche une vibration dans les contrôleurs et un son pour confirmer le point.
+Évolution : Toutes les 15 secondes, la vitesse de rotation du comptoir et de la salle entière augmente, rendant le tri de plus en plus difficile.
+Pause Dynamique : Si le joueur quitte le centre du comptoir, la rotation ralentit progressivement jusqu'à l'arrêt total pour mettre le jeu en pause.
+Nettoyage : Toute bouteille tombant hors de la scène est automatiquement détruite par une Kill Zone pour optimiser les performances.
+
 ### 5.3 Architecture Technique
+
+Le projet repose sur une architecture modulaire et optimisée :
+- Actor Component (BPC_RotationManager) : Un composant universel qui gère l'accélération et la décélération fluide (FInterp To) de n'importe quel objet possédant un RotatingMovementComponent.
+- Système d'Attachement Dynamique : Utilisation de AttachActorToComponent avec gestion des collisions (Set Actor Enable Collision) pour souder les bouteilles au comptoir tournant dès leur apparition.
+- Gestion des Événements : Utilisation de Timers pour l'accélération par paliers et de Tick optimisé (avec branches de condition) pour les transitions de vitesse fluides.
+- Hiérarchie de Scène : Fusion d'objets via un Blueprint de scène (BP_Scene) pour permettre une rotation complexe de l'environnement complet.
+
 ### 5.4 Difficulté(s) rencontré(s)
+
+- Conflits de Physique au Spawn : Résolu en désactivant temporairement les collisions de l'acteur lors du spawn pour permettre un attachement propre sans explosion physique du moteur.
+- Héritage de Logique : Transition d'une logique codée "en dur" dans chaque objet vers un Actor Component réutilisable, permettant de piloter simultanément le comptoir et la salle avec le même code.
+- Immersion VR & Confort : Mise en place d'interpolations de vitesse (FInterp To) pour éviter les démarrages et arrêts brusques, minimisant ainsi les risques de cinétose (motion sickness) en VR.
+- Synchronisation des sous-niveaux : Communication entre le trigger du comptoir et le Blueprint de la scène pour assurer un départ synchronisé de tous les éléments mobiles.
+
 ---
