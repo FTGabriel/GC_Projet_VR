@@ -17,9 +17,25 @@ Intégration VR Meta sur unreal : https://developers.meta.com/horizon/downloads/
 ---
 ## 1. Rayane
 ### 1.1 Identité Mini-jeu
+
+Nom : BeatSaber de Wish
+
+Où le trouver : Salle sans texte dans le hub.
+
 ### 1.2. Règle du mini-jeu
+
+Le jeu est un remake rapide de BeatSaber, on a deux épées avec lesquelles il faut détruire des cubes venant vers nous pour gagner des points. Pour gagner des points, il faut utiliser les bonnes armes pour détruire les cubes de la couleur associée. Epée de gauche = cube bleu, épée de droite = cube rouge.
+
 ### 1.3 Architecture Technique
+
+Le mini jeu repose sur l'utilisation des motion controllers afin de pouvoir déplacer des armes pour détruire des cubes qui apparaissent suivant le rythme d'une musique.
+
+L'apparition des cubes se réalise via une synestésie NRT basée sur la loudness de la chanson tout en respectant un aspect aléatoire pour la couleur et la position des cubes.
+
 ### 1.4 Difficulté(s) rencontré(s)
+
+Aucune.
+
 ---
 ## 2. Gabriel
 ### 2.1 Identité Mini-jeu
